@@ -10,6 +10,13 @@ libraryDependencies += "org.apache.spark" %% "spark-sql-kafka-0-10" % "2.4.0"
 // https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-spark-20
 libraryDependencies += "org.elasticsearch" %% "elasticsearch-spark-20" % "6.5.4"
 
+mainClass in assembly := Some("com.github.Main")
+
+assemblyMergeStrategy in assembly := {
+ case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+ case x => MergeStrategy.rename
+}
+
 
 
 
